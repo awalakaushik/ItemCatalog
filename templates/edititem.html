@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Item</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- FontAwesome CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styles.css')}}">
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+	        <div class="container-fluid">
+	          <div class="navbar-header">
+	            <a class="navbar-brand" href="#">Sports Catalog</a>
+	          </div>
+	          <div id="navbar" class="navbar-collapse collapse">
+	            <ul class="nav navbar-nav navbar-right">
+	              <li><a href="{{url_for('gdisconnect')}}"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div><!--/.container-fluid -->
+      	</nav>
+      	<div class="jumbotron">
+      		<form action="{{url_for('editItem', item_name = item.name)}}", method="post">
+				<h2>
+					Edit Item
+				</h2>
+				<!-- Item details -->
+				<div class="form-group">
+				    <label for="title">Title</label>
+				    <input type="text" class="form-control" name="item_name" id="title" value = "{{item.name}}">
+				</div>
+				<div class="form-group">
+				    <label for="desc">Description</label>
+				    <textarea class="form-control" id="desc" name="item_description" rows="3">{{item.description}}</textarea>
+				</div>
+				<div class="form-group">
+				    <label for="category">Select Category</label>
+				    <select class="form-control" name="item_category" id="category">
+				     	{% for category in categories %}
+						<option value="{{category.name}}">{{category.name}}</option>
+						{% endfor %}x
+				    </select>	
+			  	</div>
+				<!-- <p>Title</p>
+				<input type="text" name="item_name" value="{{item.name}}"> -->
+				<!-- <p>
+					Description
+				</p>
+				<textarea rows="5" cols="18" name="item_description">{{item.description}}</textarea> -->
+				<!-- <p>
+					Category
+				</p>
+				<select name="item_category">
+					{% for category in categories %}
+					<option value="{{category.name}}">{{category.name}}</option>
+					{% endfor %}
+				</select> -->
+				<br/>
+				<br/>
+				<!-- Submit button -->
+				<input type="Submit" name="editItemButton" class="btn btn-primary mb-2" value="Submit">
+				<a class="btn btn-secondary mb-2" role = "button" href="{{url_for('showCatalog')}}">Cancel</a>
+			</form>
+      	</div>
+	</div>
+	<!-- <header>
+		<div class="app_name">Catalog App</div>
+		<div class="login_button">Login</div>
+	</header> -->
+	
+</body>
+</html>

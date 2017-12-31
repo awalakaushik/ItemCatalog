@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Item Catalog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- FontAwesome CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'styles.css')}}">
+	
+
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default">
+	        <div class="container-fluid">
+	          <div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	              <span class="sr-only">Toggle navigation</span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">Sports Catalog</a>
+	          </div>
+	          <div id="navbar" class="navbar-collapse collapse">
+	            <ul class="nav navbar-nav navbar-right">
+	              <li><a href="{{url_for('showLogin')}}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div><!--/.container-fluid -->
+      	</nav>
+
+
+		<!-- MESSAGE FLASHING -->
+		<div class="notification_messages">
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+
+			<ul>
+				{% for message in messages%}
+				<li><strong>{{message}}</strong></li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% endwith %}
+		</div>
+
+
+		<!-- Category List -->
+		<div class="jumbotron">
+	        <h2><i class="fa fa-futbol-o" aria-hidden="true"></i> Categories</h2>
+	        <blockquote class="blockquote text-center">
+			 	<p class="mb-0">According to the World Sports Encyclopedia (2003), there are 8,000 indigenous sports and sporting games.</p>
+			 	<footer class="blockquote-footer"><cite title="Source Title">Wikipedia</cite></footer>
+			</blockquote>
+	        <ul class="list-group">
+				{% for category in categories %}
+				<li class="list-group-item">
+    				<a href="{{url_for('showCategoryItemList', category_name = category.name)}}">{{category.name}}</a>
+    				<span class="badge badge-primary badge-pill">{{itemTotals[category]}}</span>
+  				</li>
+				{% endfor %}
+			</ul>
+	    </div>
+	</div><!-- container div -->
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
