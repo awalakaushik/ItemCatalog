@@ -54,17 +54,17 @@ category1 = Category(user_id = 1, name = "Archery")
 session.add(category1)
 session.commit()
 
-categoryItem1 = CategoryItem(user_id = 1, name = "Gakgung", description = "The Korean Bow (horn bow) is a water buffalo horn-based composite reflex bow, standardized centuries ago from a variety of similar weapons in earlier use. Due to its long use by Koreans, it is also known as Guk Gung (national bow). The Korean bow utilizes a thumb draw and therefore employing the use of a thumb ring is quite common. The Korean thumb ring is somewhat different from the Manchu, Mongol, or the Turkish Thumb Ring, as it comes in two styles, male and female. Male thumb rings are shaped with a small protrusion that sticks out that the bowstring hooks behind (similar to a release aid), while the female thumb ring simply covers the front joint of the thumb as protection from getting blisters (pulling heavy bows repetitively with only the thumb can easily cause blisters to form on the pad of the thumb). Also, the arrow is laid on the right side of the bow, unlike the western bow, where the arrow is laid on the left side of the bow.", category = category1)
+categoryItem1 = CategoryItem(user_id = 1, name = "Gakgung", description = "The Korean Bow (horn bow) is a water buffalo horn-based composite reflex bow, standardized centuries ago from a variety of similar weapons in earlier use. Due to its long use by Koreans, it is also known as Guk Gung (national bow).", category = category1)
 
 session.add(categoryItem1)
 session.commit()
 
-categoryItem2 = CategoryItem(user_id = 1, name = "Popinjay", description = "Popinjay or Papingo (signifying a painted bird), also called pole archery, is a shooting sport that can be performed with either rifles or archery equipment. The rifle form is a popular diversion in Denmark; a Scottish variant is also known. The archery form is popular in Belgium and is shot occasionally in the United Kingdom under the governance of the Grand National Archery Society. In Germany a traditional shooting at wooden birds placed on a high pole is called \"Vogelschieben\" (that is \"bird shooting\"). These are carried out either with small bore rifles or crossbows.", category = category1)
+categoryItem2 = CategoryItem(user_id = 1, name = "Popinjay", description = "Popinjay or Papingo (signifying a painted bird), also called pole archery, is a shooting sport that can be performed with either rifles or archery equipment. The rifle form is a popular diversion in Denmark; a Scottish variant is also known.", category = category1)
 
 session.add(categoryItem2)
 session.commit()
 
-categoryItem3 = CategoryItem(user_id = 1, name = "Target Archery", description = "Target archery is the most popular form of archery, in which members shoot at stationary circular targets at varying distances. All types of bow - longbow, barebow, recurve and compound - can be used. In Great Britain, Imperial rounds, measured in yards, are still used for a lot of tournaments and these have slightly different rules to WA (metric) rounds, which are used internationally. Archers are divided into seniors and juniors, with juniors being those under the age of 18.", category = category1)
+categoryItem3 = CategoryItem(user_id = 1, name = "Target Archery", description = "Target archery is the most popular form of archery, in which members shoot at stationary circular targets at varying distances. All types of bow - longbow, barebow, recurve and compound - can be used. ", category = category1)
 
 session.add(categoryItem3)
 session.commit()
