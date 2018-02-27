@@ -185,8 +185,7 @@ def gdisconnect():
     print 'In gdisconnect access token is %s', access_token
     print 'User name is: '
     print login_session['username']
-    url = 'https://accounts.google.com/o/oauth2/revoke?token=%s'
-    % login_session['access_token']
+    url = 'https://accounts.google.com/o/oauth2/revoke?token=%s'%(login_session['access_token'])
     h = httplib2.Http()
     result = h.request(url, 'GET')[0]
     print 'result is '
@@ -240,8 +239,7 @@ def showCatalog():
     itemTotals = {}
     output = ""
     for category in categories:
-        itemTotal = session.query(CategoryItem).
-        filter_by(category_id=category.id).count()
+        itemTotal = session.query(CategoryItem).filter_by(category_id=category.id).count()
         itemTotals[category] = itemTotal
     # render the template
     if 'username' not in login_session:
@@ -264,8 +262,7 @@ def showCategoryItemList(category_name):
     categories = session.query(Category).all()
     category = session.query(Category).filter_by(name=category_name).one()
     items = session.query(CategoryItem).filter_by(category_id=category.id)
-    itemTotal = session.query(CategoryItem).
-    filter_by(category_id=category.id).count()
+    itemTotal = session.query(CategoryItem).filter_by(category_id=category.id).count()
 
     # render the template
     return render_template(
@@ -336,14 +333,13 @@ def editItem(item_name):
     if item.user_id != login_session['user_id']:
         return "<script>\
         function myFunction(){\
-        alert('You are not authorized to delete this restaurant.\
-        Please create your own item to delete it.')\
+        alert('You are not authorized to edit this restaurant.\
+        Please create your own item to edit it.')\
         }</script>\
         <body onload='myFunction()'></body>"
     if request.method == 'POST':
         # item = session.query(CategoryItem).filter_by(name = item_name).one()
-        category = session.query(Category).
-        filter_by(name=request.form.get('item_category')).one()
+        category = session.query(Category).filter_by(name=request.form.get('item_category')).one()
         if request.form['item_name']:
             item.name = request.form['item_name']
         if request.form['item_description']:
